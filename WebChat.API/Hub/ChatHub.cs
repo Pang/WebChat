@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
+using System.Threading.Tasks;
 
-namespace signalRtest
+namespace WebChat.API.Hub
 {
-    public class ChatHub : Hub
+    public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
     {
         public Task SendMessage(string user, string message)
         {

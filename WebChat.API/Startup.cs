@@ -10,8 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebChat.API.Hub;
 
-namespace signalRtest
+namespace WebChat.API
 {
     public class Startup
     {
@@ -32,9 +33,9 @@ namespace signalRtest
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseSignalR(route => 
+            app.UseSignalR(route =>
             {
-                route.MapHub<ChatHub>("/chat");
+                route.MapHub<ChatHub>("/ChatHub");
             });
 
             // app.UseHttpsRedirection();

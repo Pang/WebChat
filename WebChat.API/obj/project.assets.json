@@ -12086,11 +12086,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cPango\\Documents\\Code\\signalRtest\\signalRtest.csproj",
-      "projectName": "signalRtest",
-      "projectPath": "C:\\Users\\cPango\\Documents\\Code\\signalRtest\\signalRtest.csproj",
+      "projectUniqueName": "C:\\Users\\cPango\\Documents\\Code\\signalRtest\\WebChat.API\\WebChat.API.csproj",
+      "projectName": "WebChat.API",
+      "projectPath": "C:\\Users\\cPango\\Documents\\Code\\signalRtest\\WebChat.API\\WebChat.API.csproj",
       "packagesPath": "C:\\Users\\cPango\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cPango\\Documents\\Code\\signalRtest\\obj\\",
+      "outputPath": "C:\\Users\\cPango\\Documents\\Code\\signalRtest\\WebChat.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
