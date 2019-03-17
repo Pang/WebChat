@@ -7,7 +7,7 @@ namespace WebChat.API.Hub
     {
         public Task SendMessage(string user, string message)
         {
-            return Clients.All.SendAsync("receiveMessage", user, message);
+            return Clients.All.SendAsync("ReceiveMessage", user, message);
         }
     }
 }

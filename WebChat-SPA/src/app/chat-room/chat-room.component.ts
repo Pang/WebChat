@@ -7,18 +7,28 @@ import { HubConnectionBuilder } from '@aspnet/signalr';
   styleUrls: ['./chat-room.component.css']
 })
 export class ChatRoomComponent implements OnInit {
-  ngOnInit() {
-    let connection = new HubConnectionBuilder()
+  username: string;
+  messageInput: string;
+  connection = new HubConnectionBuilder()
       .withUrl('http://localhost:5000/ChatHub')
       .build();
 
-    connection.on('send', data => {
-        console.log(data);
+  ngOnInit() {
+    this.connection.on('ReceiveMessage', (user, message) => {
+      console.log(user + ': ' + message);
     });
 
-    connection.start()
+    this.connection.start()
       .then(() => console.log('connection started'))
       .catch(err => alert('error connecting: ' + err));
   }
+
+  onSend() {
+    this.connection.invoke('SendMessage', this.username, this.messageInput)
+      .catch((err) => {
+        return console.error(err.toString());
+      });
+  }
+
 
 }
