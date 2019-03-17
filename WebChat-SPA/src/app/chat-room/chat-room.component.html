@@ -1,8 +1,18 @@
 <div class="container">
   <form #userDetails="ngForm">
-    <label name="name">Name</label>
-    <input name="name" type="text" id="username"/>
-    <label name="msgInput">Message</label>
+    <label name="name">Name</label><br />
+    <input name="name" type="text" id="username"/><br />
+    <label name="msgInput">Message</label><br />
     <input name="msgInput" type="text" id="messageInput"/>
+    <button type="submit">Send</button>
   </form>
 </div>
+<hr>
+<div class="container">
+  <ul class="mt-5" id="messagesList">
+
+  </ul>
+</div>
+
+<!-- <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script> -->

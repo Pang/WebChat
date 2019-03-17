@@ -8,7 +8,7 @@ namespace WebChat.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class MessageController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -26,8 +26,9 @@ namespace WebChat.API.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post()
         {
+            return Ok();
         }
 
         // PUT api/values/5

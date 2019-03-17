@@ -28,17 +28,23 @@ namespace WebChat.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSignalR();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(x => x.AllowAnyHeader()
+                .AllowAnyMethod()
+                .WithOrigins("http://localhost:4200")
+                .AllowCredentials()
+            );
+
             app.UseSignalR(route =>
             {
                 route.MapHub<ChatHub>("/ChatHub");
             });
 
-            // app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

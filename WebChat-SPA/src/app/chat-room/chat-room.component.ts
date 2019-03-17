@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HubConnectionBuilder } from '@aspnet/signalr';
 
 @Component({
   selector: 'app-chat-room',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-room.component.css']
 })
 export class ChatRoomComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit() {
+    let connection = new HubConnectionBuilder()
+      .withUrl('http://localhost:5000/ChatHub')
+      .build();
+
+    connection.on('send', data => {
+        console.log(data);
+    });
+
+    connection.start()
+      .then(() => console.log('connection started'))
+      .catch(err => alert('error connecting: ' + err));
   }
 
 }
