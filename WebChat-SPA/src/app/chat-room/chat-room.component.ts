@@ -9,13 +9,14 @@ import { HubConnectionBuilder } from '@aspnet/signalr';
 export class ChatRoomComponent implements OnInit {
   username: string;
   messageInput: string;
+  messages = [];
   connection = new HubConnectionBuilder()
       .withUrl('http://localhost:5000/ChatHub')
       .build();
 
   ngOnInit() {
     this.connection.on('ReceiveMessage', (user, message) => {
-      console.log(user + ': ' + message);
+      this.messages.push(user + ': ' + message);
     });
 
     this.connection.start()
