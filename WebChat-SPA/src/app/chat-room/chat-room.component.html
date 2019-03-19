@@ -1,26 +1,25 @@
-<div class="container">
-  <form #userDetails="ngForm">
-    <label name="name">Name</label><br />
-    <input name="name" type="text" id="username" [(ngModel)]="msgObj.username"/>
-    <select name="colorSelect" [(ngModel)]="msgObj.color">
-      <option value="black">Black</option>
-      <option value="red">Red</option>
-      <option value="blue">Blue</option>
-      <option value="green">Green</option>
-      <option value="purple">Purple</option>
-    </select>
-    <br />
-    <label name="msgInput">Message</label><br />
-    <input name="msgInput" type="text" id="messageInput" [(ngModel)]="msgObj.msgTxt"/>
-    <button (click)="onSend()">Send</button>
-  </form>
-</div>
-<hr>
-<div class="container">
-  <ul class="mt-5" id="messagesList">
-    <li *ngFor="let message of messages" [style.color]="message.color"><b>{{ message.username }}:</b> {{ message.msgTxt }}</li>
-  </ul>
-</div>
+<div>
+  <div id="messageBox" class="container">
+    <ul class="" id="messagesList">
+      <li *ngFor="let message of messages" [style.color]="message.color"><b>{{ message.username }}:</b> {{ message.msgTxt }}</li>
+    </ul>
+  </div>
 
-<!-- <script src="~/lib/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script> -->
+  <div class="container">
+    <form #userDetails="ngForm">
+      <label name="name">Name</label><br />
+      <input name="name" type="text" id="username" [(ngModel)]="msgObj.username"/>
+      <select name="colorSelect" [(ngModel)]="msgObj.color">
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="purple">Purple</option>
+      </select>
+      <br />
+      <label name="msgInput">Message</label><br />
+      <input name="msgInput" type="text" id="messageInput" [(ngModel)]="msgObj.msgTxt"/>
+      <button (click)="onSend()">Send</button>
+    </form>
+  </div>
+</div>

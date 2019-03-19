@@ -7,8 +7,6 @@ import { HubConnectionBuilder } from '@aspnet/signalr';
   styleUrls: ['./chat-room.component.css']
 })
 export class ChatRoomComponent implements OnInit {
-  username: string;
-  messageInput: string;
   messages = [];
   msgObj = {
     username: '',
@@ -34,6 +32,7 @@ export class ChatRoomComponent implements OnInit {
       .catch((err) => {
         return console.error(err.toString());
       });
+    this.msgObj.msgTxt = ' ';
   }
 
 

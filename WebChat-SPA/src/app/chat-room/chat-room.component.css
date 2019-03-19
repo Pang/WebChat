@@ -1,0 +1,12 @@
+#messageBox {
+    border: black 2px solid;
+    padding: 10px;
+    overflow: scroll;   
+    height: 500px;
+    word-wrap: break-word;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
