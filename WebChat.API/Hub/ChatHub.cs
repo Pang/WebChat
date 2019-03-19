@@ -5,9 +5,9 @@ namespace WebChat.API.Hub
 {
     public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
     {
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(string user, string msg)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            await Clients.All.SendAsync("ReceiveMessage", user, msg);
         }
     }
 }
