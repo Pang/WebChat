@@ -20,8 +20,8 @@ export class ChatRoomComponent implements OnInit {
       .build();
 
   ngOnInit() {
-    this.connection.on('ReceiveMessage', (user, message) => {
-      this.messages.push({username: user, msgTxt: message});
+    this.connection.on('ReceiveMessage', (user, message, userColor) => {
+      this.messages.push({username: user, msgTxt: message, color: userColor});
     });
 
     this.connection.start()
@@ -30,7 +30,7 @@ export class ChatRoomComponent implements OnInit {
   }
 
   onSend() {
-    this.connection.invoke('SendMessage', this.msgObj.username, this.msgObj.msgTxt)
+    this.connection.invoke('SendMessage', this.msgObj.username, this.msgObj.msgTxt, this.msgObj.color)
       .catch((err) => {
         return console.error(err.toString());
       });
