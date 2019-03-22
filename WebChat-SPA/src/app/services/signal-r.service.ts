@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
-import * as signalR from '@aspnet/signalr';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignalRService {
-  constructor(public hubConnection: signalR.HubConnection) { }
+  constructor() { }
 
-  startConnection() {
-    this.hubConnection = new signalR.HubConnectionBuilder()
-        .withUrl('http://localhost:5000/ChatHub')
-        .build();
+  private name = new BehaviorSubject<string>('');
+  username = this.name.asObservable();
 
-    this.hubConnection.start()
-        .then(() => console.log('connection started'))
-        .catch(err => alert('error connecting: ' + err));
-  }
-
+  submitName(inputName: string) {
+    this.name.next(inputName);
+  }  
 
 }

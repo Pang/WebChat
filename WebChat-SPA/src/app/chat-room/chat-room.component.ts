@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HubConnectionBuilder } from '@aspnet/signalr';
+import { SignalRService } from '../services/signal-r.service';
 
 @Component({
   selector: 'app-chat-room',
@@ -7,6 +8,9 @@ import { HubConnectionBuilder } from '@aspnet/signalr';
   styleUrls: ['./chat-room.component.css']
 })
 export class ChatRoomComponent implements OnInit {
+
+  constructor(private data: SignalRService) {}
+
   messages = [];
   msgObj = {
     username: '',
@@ -18,6 +22,8 @@ export class ChatRoomComponent implements OnInit {
       .build();
 
   ngOnInit() {
+    this.data.username.subscribe(newName => this.msgObj.username = newName);
+
     this.connection.on('ReceiveMessage', (user, message, userColor) => {
       this.messages.push({username: user, msgTxt: message, color: userColor});
     });
