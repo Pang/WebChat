@@ -7,11 +7,16 @@ import { BehaviorSubject } from 'rxjs';
 export class SignalRService {
   constructor() { }
 
+
+
+
+
+  
   private name = new BehaviorSubject<string>('');
   username = this.name.asObservable();
 
   submitName(inputName: string) {
     this.name.next(inputName);
-  }  
+  }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignalRService } from '../services/signal-r.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,20 +8,17 @@ import { SignalRService } from '../services/signal-r.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private data: SignalRService) { }
+  constructor(private router: Router, private data: SignalRService) { }
 
-  msgObj = {
-    username: '',
-    msgTxt: '',
-    color: 'black'
-  };
+  username: string;
 
   ngOnInit() {
-    this.data.username.subscribe(newName => this.msgObj.username = newName);
+    //this.data.username.subscribe(name => this.msgObj.username = name);
   }
 
   enterWebChat() {
-    this.data.submitName(this.msgObj.username);
+    this.data.submitName(this.username);
+    this.router.navigate(['/chatroom']);
   }
 
 }

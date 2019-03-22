@@ -7,15 +7,13 @@
 
   <div class="container">
     <form #userDetails="ngForm">
-      <label name="name">Name</label><br />
-      <input name="name" type="text" id="username" [(ngModel)]="msgObj.username"/>
-      <select name="colorSelect" [(ngModel)]="msgObj.color">
+      <!-- <select name="colorSelect" [(ngModel)]="msgObj.color">
         <option value="black">Black</option>
         <option value="red">Red</option>
         <option value="blue">Blue</option>
         <option value="green">Green</option>
         <option value="purple">Purple</option>
-      </select>
+      </select> -->
       <br />
       <label name="msgInput">Message</label><br />
       <input name="msgInput" type="text" id="messageInput" [(ngModel)]="msgObj.msgTxt"/>
