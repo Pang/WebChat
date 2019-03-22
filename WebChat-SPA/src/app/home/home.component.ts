@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   username: string;
 
   ngOnInit() {
-    //this.data.username.subscribe(name => this.msgObj.username = name);
   }
 
   enterWebChat() {

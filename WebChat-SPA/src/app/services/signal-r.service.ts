@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HubConnection } from '@aspnet/signalr';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,6 @@ import { BehaviorSubject } from 'rxjs';
 export class SignalRService {
   constructor() { }
 
-
-
-
-
-  
   private name = new BehaviorSubject<string>('');
   username = this.name.asObservable();
 
