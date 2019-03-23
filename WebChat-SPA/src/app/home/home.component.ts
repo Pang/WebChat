@@ -11,12 +11,13 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private data: SignalRService) { }
 
   username: string;
+  color: string;
 
   ngOnInit() {
   }
 
   enterWebChat() {
-    this.data.submitName(this.username);
+    this.data.submitName(this.username, this.color);
     this.router.navigate(['/chatroom']);
   }
 

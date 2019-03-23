@@ -1,23 +1,14 @@
-<div>
+<div class="screen">
   <div id="messageBox" class="container">
     <ul class="" id="messagesList">
       <li *ngFor="let message of messages" [style.color]="message.color"><b>{{ message.username }}:</b> {{ message.msgTxt }}</li>
     </ul>
   </div>
 
-  <div class="container">
-    <form #userDetails="ngForm">
-      <!-- <select name="colorSelect" [(ngModel)]="msgObj.color">
-        <option value="black">Black</option>
-        <option value="red">Red</option>
-        <option value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option value="purple">Purple</option>
-      </select> -->
-      <br />
-      <label name="msgInput">Message</label><br />
+  <div id="msgSendForm" class="container">
+    <form (submit)="onSend()" #userDetails="ngForm">
       <input name="msgInput" type="text" id="messageInput" [(ngModel)]="msgObj.msgTxt"/>
-      <button (click)="onSend()">Send</button>
+      <button id="sendBtn" type="submit"><i class="fas fa-paper-plane"></i></button>
     </form>
   </div>
 </div>

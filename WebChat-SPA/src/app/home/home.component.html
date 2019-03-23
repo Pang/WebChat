@@ -1,6 +1,14 @@
 <form>
-  <h1><i>WebChat</i></h1>
+  <h1><i>WebChat <i class="fas fa-comment-dots"></i></i></h1>
   <label>Name</label><br />
   <input type="text" name="name" [(ngModel)]="username" /> <br />
-  <button type="button" (click)="enterWebChat()"><b>Go</b></button>
+  <label>Pick a color: &nbsp;</label>
+  <select id="colorSelect" name="colorSelect" [(ngModel)]="color">
+    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="purple">Purple</option>
+  </select><br />
+  <button type="button" (click)="enterWebChat()"><b>Enter</b></button>
 </form>

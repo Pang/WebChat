@@ -15,7 +15,7 @@ export class ChatRoomComponent implements OnInit {
   msgObj = {
     username: '',
     msgTxt: '',
-    color: 'black'
+    color: ''
   };
   connection = new HubConnectionBuilder()
       .withUrl('http://localhost:5000/ChatHub')
@@ -23,6 +23,7 @@ export class ChatRoomComponent implements OnInit {
 
   ngOnInit() {
     this.data.username.subscribe(newName => this.msgObj.username = newName);
+    this.data.userColor.subscribe(newColor => this.msgObj.color = newColor);
 
     this.connection.on('ReceiveMessage', (user, message, userColor) => {
       this.messages.push({username: user, msgTxt: message, color: userColor});
